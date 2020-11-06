@@ -9,8 +9,8 @@
 | encrypted_password       | string     | null: false                    |
 | last_name                | string     | null: false                    |
 | first_name               | string     | null: false                    |
-| last-name_kana           | string     | null: false                    |
-| first-name_kana          | string     | null: false                    |
+| last_name_kana           | string     | null: false                    |
+| first_name_kana          | string     | null: false                    |
 | user_birth_date          | date       | null: false                    |
 
 ### Association
@@ -48,17 +48,19 @@
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :purchase_user
+
 
 ## purchase_usersテーブル
 
 | Column                  | Type           | Options                        |
 | ----------------------- | -------------- | ------------------------------ |
-| postal_cord_id          | string         | null: false                    |
+| postal_cord             | string         | null: false                    |
 | prefecture_id           | integer        | null: false                    |
 | city                    | string         | null: false                    |
-| adderesses              | references     | null: false                    |
-| building                | references     |                                |
-| phone_number            | references     | null: false                    |
+| adderesses              | string         | null: false                    |
+| building                | string         |                                |
+| phone_number            | string         | null: false                    |
 | purchase                | references     | foreign_key :true              |
 
 
