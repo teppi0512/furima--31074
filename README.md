@@ -20,23 +20,36 @@
 
 ## itemsテーブル
 
-| Column                  | Type    | Options                        |
-| ----------------------- | ------- | ------------------------------ |
-| name                    | string  | null: false                    |
-| explain                 | text    | null: false                    |
-| category_id             | integer | null: false                    |
-| sales_status_id         | integer | null: false                    |
-| shipping_fee_status_id  | integer | null: false                    |
-| prefecture_id           | integer | null: false                    |
-| scheduled_delivery_id   | integer | null: false                    |
-| price                   | integer | null: false                    |
+| Column                  | Type       | Options                        |
+| ----------------------- | ---------- | ------------------------------ |
+| name                    | string     | null: false                    |
+| explain                 | text       | null: false                    |
+| category_id             | integer    | null: false                    |
+| sales_status_id         | integer    | null: false                    |
+| shipping_fee_status_id  | integer    | null: false                    |
+| prefecture_id           | integer    | null: false                    |
+| scheduled_delivery_id   | integer    | null: false                    |
+| price                   | integer    | null: false                    |
+| user                    | references |                                |
 
 ### Association
 
-- belongs_to :users
-- has_one :purchases
+- belongs_to :user
+- has_one :purchase
 
-## purchases
+## purchasesテーブル
+
+| Column                  | Type       | Options                        |
+| ----------------------- | ---------- | ------------------------------ |
+| user                    | references |                                |
+| item                    | references |                                |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## purchase_usersテーブル
 
 | Column                  | Type       | Options                        |
 | ----------------------- | ---------- | ------------------------------ |
@@ -46,10 +59,8 @@
 | adderesses              | string     | null: false                    |
 | building                | string     |                                |
 | phone_number            | string     | null: false                    |
-| user                    | references |                                |
-| item                    | references |                                |
 
 ### Association
 
-- has_many :users
-- has_many :items
+- belongs_to :user
+- belongs_to :purchase
