@@ -27,10 +27,10 @@
 | category_id             | integer    | null: false                    |
 | sales_status_id         | integer    | null: false                    |
 | shipping_fee_status_id  | integer    | null: false                    |
-| prefecture_id           | integer    | null: false                    |
-| scheduled_delivery_id   | integer    | null: false                    |
-| price                   | integer    | null: false                    |
-| user                    | references |                                |
+| prefecture_id           | integer    | null: false, foreign_key :true |
+| scheduled_delivery_id   | integer    | null: false, foreign_key :true |
+| price                   | integer    | null: false, foreign_key :true |
+| user                    | references | foreign_key :true              |
 
 ### Association
 
@@ -41,8 +41,8 @@
 
 | Column                  | Type       | Options                        |
 | ----------------------- | ---------- | ------------------------------ |
-| user                    | references |                                |
-| item                    | references |                                |
+| user                    | references | foreign_key :true              |
+| item                    | references | foreign_key :true              |
 
 ### Association
 
@@ -59,6 +59,8 @@
 | adderesses              | references     | null: false                    |
 | building                | references     |                                |
 | phone_number            | references     | null: false                    |
+| purchase                | references     | foreign_key :true              |
+
 
 ### Association
 
