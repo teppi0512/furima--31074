@@ -51,16 +51,15 @@
 
 ## purchase_usersテーブル
 
-| Column                  | Type       | Options                        |
-| ----------------------- | ---------- | ------------------------------ |
-| postal_cord_id          | string     | null: false                    |
-| prefecture_id           | integer    | null: false                    |
-| city                    | string     | null: false                    |
-| adderesses              | string     | null: false                    |
-| building                | string     |                                |
-| phone_number            | string     | null: false                    |
+| Column                  | Type           | Options                        |
+| ----------------------- | -------------- | ------------------------------ |
+| postal_cord_id          | string         | null: false                    |
+| prefecture_id           | integer        | null: false                    |
+| city                    | string         | null: false                    |
+| adderesses              | references     | null: false                    |
+| building                | references     |                                |
+| phone_number            | references     | null: false                    |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :purchase
